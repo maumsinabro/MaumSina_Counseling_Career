@@ -2690,7 +2690,7 @@
       <!-- ================= LEFT PANE : 상담도우미형 ================= -->
       <section class="dashboard-pane counsel-pane">
         <div class="pane-head counsel-pane-head">
-          <h2>01. 상담 · 구직상담 Dashboard</h2>
+          <h2>01. 심리상담· 구직상담 Dashboard</h2>
           <span>상담 업무 바로가기 · 당월 운영 현황</span>
         </div>
 
@@ -2806,7 +2806,7 @@
       <!-- ================= RIGHT PANE : 01과 동일 구조 ================= -->
       <section class="dashboard-pane counsel-pane job-pane">
         <div class="pane-head counsel-pane-head">
-          <h2>02. 기업 · 매칭 · 취업 Dashboard</h2>
+          <h2>02. 구직정보/구인정보제공 Dashboard</h2>
         </div>
 
         <div class="job-posting-document" aria-label="구인 및 구직 공고 문서형 목록">
@@ -3114,7 +3114,7 @@
   /* =========================================================
      02 Dashboard 구인공고 / 구직공고 전환
      ---------------------------------------------------------
-     - 현재는 가상 DATA 10건으로 화면 구조 검증
+     - 화면 구조 확인용 구인 1건(게시일 외 0), 구직 0건
      - 추후 Supabase 연동 시 employerPostingData / seekerPostingData 대신
        DB 조회 결과를 renderPostingTable(type, rows)에 전달하면 됨
      - 프레임 크기 고정, 표 내부에만 가로/세로 스크롤 발생
@@ -3148,30 +3148,10 @@
   ];
 
   const employerPostingData = [
-    {postedDate:"2026-09-04",deadline:"미확인",remainingDays:"미확인",company:"효성중공업(주) 창원1공장",position:"CAD(설계) 계약직",count:"1명",region:"경남 창원시",career:"경력무관(신입 포함)",education:"고졸 이상(예정자 가능)",salary:"월급 271만원",source:"사람인",url:"https://m.saramin.co.kr/job-search/view?rec_idx=54944217",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-03",deadline:"2026-10-31",remainingDays:"56일",company:"(주)제이이엔지",position:"제어기술팀 신입/경력 사원",count:"1명",region:"경남 김해시",career:"신입·경력(목록 제목)",education:"미확인",salary:"회사 내규(목록 표기)",source:"고용24 재게시 목록",url:"https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=KOS&infoTypeGroup=tb_workinfogubun&wantedAuthNo=230161",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-03",deadline:"2026-10-03",remainingDays:"28일",company:"두산에너빌리티(주)",position:"가스/스팀터빈 제어 시운전 계약직",count:"1명",region:"경남 창원시(목록 표기)",career:"미확인",education:"미확인",salary:"회사 내규(목록 표기)",source:"고용24 재게시 목록",url:"https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=CSI&infoTypeGroup=tb_workinfogubun&wantedAuthNo=54928364",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-03",deadline:"2026-09-21",remainingDays:"16일",company:"한국카본",position:"전기 공무(현장직)",count:"1명",region:"경남 밀양시 본사",career:"신입 또는 경력(2~3년)",education:"고졸 이상",salary:"회사 내규",source:"기업 공식 채용",url:"https://www.hcarbon.com/ko/recruit/jobDetail.do?idx=388",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-02",deadline:"2026-11-01",remainingDays:"57일",company:"(주)성진단조",position:"전기·공무 관리자(열간 단조)",count:"1명",region:"경남 함안군",career:"경력자(상세 연수 미확인)",education:"학력무관(재게시 자료)",salary:"연봉 5,000만원 이상 / 협의 가능",source:"고용24 재게시·Indeed",url:"https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=VALIDATION&infoTypeGroup=tb_workinfoworknet&wantedAuthNo=K131112609020034",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-02",deadline:"2026-11-01",remainingDays:"57일",company:"(주)한성전장",position:"전기·전자 분야 단순 종사원",count:"1명",region:"경남 양산시",career:"미확인",education:"미확인",salary:"시급 10,320원 이상",source:"고용24 재게시 목록",url:"https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=VALIDATION&infoTypeGroup=tb_workinfoworknet&wantedAuthNo=KF10512609020001",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-01",deadline:"2026-09-30",remainingDays:"25일",company:"(주)인터전기",position:"배전반·자동제어 설계 / PLC·SCADA 영업·기술",count:"1명",region:"경남 김해시 대동면",career:"신입·경력(3년 이상 표기)",education:"대졸 이상",salary:"연봉 4,000만원 이상 / 면접 후 결정",source:"잡코리아",url:"https://www.jobkorea.co.kr/Recruit/GI_Read/49897666?Oem_Code=C1&PageGbn=ST&sc=225",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-01",deadline:"2026-09-15",remainingDays:"10일",company:"롯데칠성음료(주)",position:"생산(기계·전기·전자) 신입",count:"1명",region:"경남 양산시(안성도 모집지역 포함)",career:"신입",education:"대졸 이상(졸업예정자 가능)",salary:"회사 내규",source:"잡코리아",url:"https://www.jobkorea.co.kr/Recruit/GI_Read/49927213?Oem_Code=C1",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-01",deadline:"2026-10-30",remainingDays:"55일",company:"에너비스 주식회사",position:"전기·전자·통신 제품 개발 연구원",count:"1명",region:"경남 거제시",career:"경력무관(재게시 자료)",education:"미확인(자료 간 불일치)",salary:"연봉 4,000만원 이상 / 면접 후 협의",source:"고용24 재게시·인비원·직행",url:"https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=VALIDATION&infoTypeGroup=tb_workinfoworknet&wantedAuthNo=K131522609010001",status:"원문 재확인 필요"},
-    {postedDate:"2026-09-01",deadline:"2026-09-15",remainingDays:"10일",company:"원강산업주식회사",position:"설비보수·전기 공무",count:"1명",region:"경남 함안군",career:"미확인",education:"미확인",salary:"연봉 4,500만~5,500만원",source:"고용24 재게시 목록",url:"https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=VALIDATION&infoTypeGroup=tb_workinfoworknet&wantedAuthNo=K131112609010042",status:"원문 재확인 필요"}
+    {postedDate:"2026-09-01", deadline:0, remainingDays:0, company:0, position:0, count:0, region:0, career:0, education:0, salary:0, source:0, url:0, status:0}
   ];
 
-  const seekerPostingData = [
-    {receiptDate:"2026-08-23",name:"김○○",desiredJob1:"생산직",desiredSalary:"월 280만원",desiredRegion:"서울·경기",desiredJob2:"생산설비 운영",career:"3년",nationality:"한국",address:"서울특별시 금천구 독산동"},
-    {receiptDate:"2026-08-22",name:"이○○",desiredJob1:"품질관리",desiredSalary:"연 3,800만원",desiredRegion:"경기 안양",desiredJob2:"품질검사·QA",career:"5년",nationality:"한국",address:"경기도 안양시 동안구 호계동"},
-    {receiptDate:"2026-08-21",name:"박○○",desiredJob1:"사무직",desiredSalary:"연 3,200만원",desiredRegion:"서울 구로",desiredJob2:"기업고객 관리",career:"신입",nationality:"한국",address:"서울특별시 구로구 구로동"},
-    {receiptDate:"2026-08-20",name:"TRAN A",desiredJob1:"물류직",desiredSalary:"월 270만원",desiredRegion:"인천",desiredJob2:"입출고·재고관리",career:"2년",nationality:"베트남",address:"인천광역시 남동구 논현동"},
-    {receiptDate:"2026-08-19",name:"최○○",desiredJob1:"설비보전",desiredSalary:"연 4,500만원",desiredRegion:"경기 시흥",desiredJob2:"전기·기계 정비",career:"7년",nationality:"한국",address:"경기도 시흥시 정왕동"},
-    {receiptDate:"2026-08-18",name:"정○○",desiredJob1:"가공직",desiredSalary:"월 310만원",desiredRegion:"경기 군포",desiredJob2:"CNC 가공",career:"4년",nationality:"한국",address:"경기도 군포시 당정동"},
-    {receiptDate:"2026-08-17",name:"NGUYEN B",desiredJob1:"생산관리",desiredSalary:"연 3,500만원",desiredRegion:"경기 화성",desiredJob2:"자동차부품 생산",career:"3년",nationality:"베트남",address:"경기도 화성시 향남읍"},
-    {receiptDate:"2026-08-16",name:"윤○○",desiredJob1:"조립직",desiredSalary:"월 265만원",desiredRegion:"인천 부평",desiredJob2:"전자부품 조립",career:"1년",nationality:"한국",address:"인천광역시 부평구 청천동"},
-    {receiptDate:"2026-08-15",name:"강○○",desiredJob1:"전산직",desiredSalary:"연 4,100만원",desiredRegion:"서울 영등포",desiredJob2:"ERP 운영지원",career:"4년",nationality:"한국",address:"서울특별시 영등포구 문래동"},
-    {receiptDate:"2026-08-14",name:"LI C",desiredJob1:"검사직",desiredSalary:"연 3,400만원",desiredRegion:"경기 안산",desiredJob2:"시험·계측 관리",career:"2년",nationality:"중국",address:"경기도 안산시 단원구 원곡동"}
-  ];
+  const seekerPostingData = [];
 
   const postingTable = document.getElementById("postingTable");
   const postingCols = document.getElementById("postingCols");
