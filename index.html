@@ -1607,7 +1607,8 @@
     background:#6ce39a;
     box-shadow:0 0 0 5px rgba(108,227,154,.10);
   }
-  .sina-login-copy{margin-top:88px}
+  /* 로그인 소개 제목을 상향 배치하고 4개 서비스 카드와 겹치지 않도록 구성 */
+  .sina-login-copy{margin-top:50px}
   .sina-login-copy h1{
     margin:0;
     font-size:31px;
@@ -1616,13 +1617,38 @@
     font-weight:900;
   }
   .sina-login-copy h1 span{display:block;color:#b9ccff}
-  .sina-login-copy p{
-    margin:20px 0 0;
-    width:90%;
-    font-size:13.5px;
-    line-height:1.85;
-    color:#d4deec;
+  .sina-login-copy .sina-login-access-note{
+    margin:10px 0 0;
+    font-size:12.5px;
+    line-height:1.5;
+    color:#e1e9f6;
   }
+  .sina-login-intro{margin-top:20px}
+  .sina-login-intro h2{
+    margin:0 0 10px;
+    color:#7fe1ff;
+    font-size:19px;
+    font-weight:900;
+    letter-spacing:-.4px;
+  }
+  .sina-login-expanded{
+    margin:0 0 10px;
+    font-size:11.5px;
+    line-height:1.35;
+    font-weight:750;
+    letter-spacing:-.15px;
+    color:#b9ccff;
+    white-space:nowrap;
+  }
+  .sina-login-intro p{
+    width:100%;
+    margin:0 0 10px;
+    font-size:12.8px;
+    line-height:1.67;
+    color:#d9e4f3;
+    word-break:keep-all;
+  }
+  .sina-login-intro p:last-child{margin-bottom:0}
   .sina-login-flow{
     position:absolute;
     left:46px;right:46px;bottom:44px;
@@ -1641,8 +1667,8 @@
     border-radius:12px;
     text-align:center;
   }
-  .sina-login-flow strong{font-size:12px}
-  .sina-login-flow small{font-size:9.5px;color:#bfcce0}
+  .sina-login-flow strong{font-size:11.3px;letter-spacing:-.55px;white-space:nowrap}
+  .sina-login-flow small{font-size:9.2px;color:#bfcce0;white-space:nowrap}
 
   .sina-login-form-panel{
     min-width:0;
@@ -1865,6 +1891,10 @@
     font-size:10px;
     line-height:1.55;
   }
+  /* 이전 화면에서 X표시로 제거 요청된 세 버튼과 안내문을 시각적으로 제외.
+     DOM은 인증·초대·복구 이벤트 등록 코드의 안전성을 위해 유지한다. */
+  .sina-login-shell .sina-sub-actions,
+  .sina-login-shell .sina-help{display:none}
   .sina-login-foot{
     margin-top:13px;
     padding-top:13px;
@@ -1996,8 +2026,12 @@
 
   @media(max-height:700px){
     .sina-login-shell:not(.is-password-mode){height:min(540px,calc(100vh - 24px))}
-    .sina-login-copy{margin-top:58px}
-    .sina-login-flow{bottom:28px}
+    .sina-login-copy{margin-top:30px}
+    .sina-login-intro{margin-top:14px}
+    .sina-login-intro h2{margin-bottom:7px;font-size:18px}
+    .sina-login-expanded{font-size:10.5px;margin-bottom:7px}
+    .sina-login-intro p{font-size:12px;line-height:1.48;margin-bottom:7px}
+    .sina-login-flow{bottom:24px}
     .sina-login-form-panel{padding-top:30px;padding-bottom:24px}
     .sina-login-shell.is-password-mode{height:calc(100vh - 20px);max-height:calc(100vh - 20px)}
     .sina-login-shell.is-password-mode .sina-login-form-panel{padding-top:20px;padding-bottom:16px}
@@ -2381,17 +2415,20 @@
 
       <div class="sina-login-copy">
         <h1>마음:시나브로<span>심리상담연구소 PC-ARC</span></h1>
-        <p>
-          상담 · 구직 · 기업 · 매칭 업무를 하나의 화면에서 관리합니다.
-          등록된 직원만 로그인할 수 있습니다.
-        </p>
+        <p class="sina-login-access-note">등록된 직원만 로그인할 수 있습니다.</p>
+        <div class="sina-login-intro" aria-label="PC-ARC 소개">
+          <h2>PC-ARC 소개</h2>
+          <div class="sina-login-expanded" lang="en">Psychology to Career — Align · Refer · Complete</div>
+          <p>PC-ARC는 심리상담, 진로상담, 기업 구인정보 제공, 구직정보 제공을 하나로 연결하는 통합 업무지원 시스템입니다.</p>
+          <p>상담 기록과 일정, 기업의 채용 정보 및 취업 정보를 체계적으로 관리하여 심리상담후 진로상담, 취업 연계까지 효율적인 업무를 지원합니다.</p>
+        </div>
       </div>
 
-      <div class="sina-login-flow">
+      <div class="sina-login-flow" aria-label="주요 서비스">
         <div><strong>상담</strong><small>Counseling</small></div>
-        <div><strong>구직</strong><small>Career</small></div>
-        <div><strong>매칭</strong><small>Matching</small></div>
-        <div><strong>관리</strong><small>Control</small></div>
+        <div><strong>진로</strong><small>Career</small></div>
+        <div><strong>기업구인정보</strong><small>Recruitment</small></div>
+        <div><strong>기업구직정보</strong><small>Job Search</small></div>
       </div>
     </div>
 
